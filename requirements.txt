@@ -1,0 +1,27 @@
+# ── Core deep learning ─────────────────────────────────────────────────────────
+# PyTorch CPU build is sufficient for inference in the demo app.
+# For GPU inference, replace with the appropriate CUDA wheel:
+#   torch==2.5.1+cu121 from https://download.pytorch.org/whl/cu121
+torch>=2.5.1
+
+# ── Mamba SSM (required by model_arch.py) ─────────────────────────────────────
+# Pre-built wheels are available for Linux (Python 3.10/3.11/3.12 + CUDA 12):
+#   https://github.com/state-spaces/mamba/releases
+# For CPU-only inference without CUDA, install with:
+#   pip install mamba-ssm --no-build-isolation
+mamba-ssm>=2.2.4
+causal-conv1d>=1.6.0
+
+# ── Streamlit app ──────────────────────────────────────────────────────────────
+streamlit>=1.35.0
+plotly>=5.20.0
+
+# ── Data handling ─────────────────────────────────────────────────────────────
+h5py>=3.10.0
+numpy>=1.26.0
+pandas>=2.2.0
+
+# ── Scientific utilities ───────────────────────────────────────────────────────
+scipy>=1.12.0
+scikit-image>=0.22.0
+scikit-learn>=1.4.0

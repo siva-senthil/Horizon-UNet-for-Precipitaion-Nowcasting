@@ -6,11 +6,6 @@ infrared satellite data. Built on Mamba-2 State Space Models embedded in
 a hierarchical U-Net, with a physics-informed composite loss designed
 specifically for extreme rainfall events.
 
-This is the official code repository for the Master's dissertation
-"Causal-Mamba Diffusion: A Structure-Aware Spatiotemporal Model for Extreme
-Precipitation Nowcasting" (VIT, April 2026).
-
-
 ## Overview
 
 Standard deep learning nowcasting models face a trilemma: ConvRNNs accumulate

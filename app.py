@@ -1235,7 +1235,7 @@ def _render_interpretation(interp: dict, m30: dict, m60: dict,
     pred_sent = (f"The model forecasts peak VIL of **{t30_p:.0f} kg/m²** at t+30 "
                  f"and **{t60_p:.0f} kg/m²** at t+60 ({trend}).")
 
-    # Skill caveat — honest about low CSI
+    # Skill caveat 
     if csi_m < 0.15:
         skill_note = (f"⚠️ **Low forecast skill** (CSI-mod = {csi_m:.3f}) — "
                       "spatial placement of rain areas is uncertain. "
@@ -1275,37 +1275,6 @@ The **{method}** model observed {obs_desc} in the input sequence.
 | Severe | > 133 kg/m² | Flash floods, hail, damaging wind |
 """)
 
-
-def _render_architecture_diagram():
-    """Show a brief architecture overview when no data is loaded."""
-    st.markdown("### 🏗️ Model Architecture Overview")
-    cols = st.columns(5)
-    blocks = [
-        ("📥 Input\n13×2 frames", "#1a3a5c"),
-        ("🔽 Encoder\n4× EncBlock\n(Conv+Mamba2D)", "#1a4a3c"),
-        ("⚡ Bottleneck\n2× Mamba2D\nlayers", "#4a2a1a"),
-        ("🔼 Decoder\n4× DecBlock\nwith skip-conns", "#1a3a5c"),
-        ("📤 Output\nt+30, t+60\nVIL maps", "#3a1a5c"),
-    ]
-    for col, (label, color) in zip(cols, blocks):
-        col.markdown(
-            f'<div style="background:{color};padding:16px;border-radius:10px;'
-            f'text-align:center;white-space:pre-line;font-size:0.85rem">{label}</div>',
-            unsafe_allow_html=True,
-        )
-    st.markdown("""
-    **How it works:**
-    1. 13 past frames (VIL + IR069) are concatenated along the channel axis.
-    2. A **stem Conv** projects to the latent space.
-    3. Four **Encoder blocks** progressively downsample using strided Conv + Mamba2D layers
-       (Mamba scans rows AND columns, fused via a learned sigmoid gate).
-    4. A **bottleneck** with 2 Mamba2D layers captures long-range spatial context.
-    5. Four **Decoder blocks** upsample with skip connections from the encoder.
-    6. A **prediction head** outputs two channels → t+30 min & t+60 min VIL.
-    """)
-
-
-# ════════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     main()

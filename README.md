@@ -44,7 +44,7 @@ that single-pass prediction suppresses error accumulation at longer horizons.
 ## Architecture
 
 <p align="left">
-  <img src="assets/HorizonUNet_gv.png" width="20%" alt="Full model architecture"/>
+  <img src="assets/HorizonUNet_gv.png" width="40%" alt="Full model architecture"/>
 </p>
 <p align="left"><em>Fig. Model Architecture </em></p>
 
@@ -54,7 +54,7 @@ that single-pass prediction suppresses error accumulation at longer horizons.
 <p align="left"><em>Fig. Horizon UNet Encoder </em></p>
 
 <p align="left">
-  <img src="assets/HorizonUNet_Decoder.gv.png" width="20%" alt="HU_Decoder"/>
+  <img src="assets/HorizonUNet_Decoder.gv.png" width="30%" alt="HU_Decoder"/>
 </p>
 <p align="left"><em>Fig. Horizon UNet Decoder </em></p>
 

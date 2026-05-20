@@ -1,10 +1,6 @@
 """
-fetch_real_sevir_data.py
 ─────────────────────────────────────────────────────────────────────────────
 Fetches SEVIR-format H5 event pairs (VIL + IR069) from AWS S3.
-
-Run once in Colab/Kaggle:
-    python fetch_real_sevir_data.py
 
 Output (in ./sample_data/):
     real_event_{id}_vil.h5    ─ datasets: 'past'  (13,128,128)

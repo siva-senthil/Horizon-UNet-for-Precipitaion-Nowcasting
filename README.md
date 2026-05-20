@@ -209,7 +209,7 @@ to prevent data leakage.
 
 ## License
  
-MIT License. See LICENSE for details.
+MIT License. See [LICENSE](LICENSE) for details.
  
 The SEVIR dataset is subject to its own terms of use. See
 https://registry.opendata.aws/sevir/ for details.

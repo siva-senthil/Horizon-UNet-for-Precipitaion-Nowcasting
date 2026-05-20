@@ -9,8 +9,7 @@ Run:
 Requires:
     • model_arch.py  (in same directory)
     • A trained checkpoint  (best_model.pt  or  model.pt)
-    • H5 event files  OR  synthetic demo data
-          → python generate_sample_data.py   (creates ./sample_data/)
+    • H5 event files  
 ════════════════════════════════════════════════════════════════════════════════
 """
 

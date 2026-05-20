@@ -1,32 +1,3 @@
-"""
-train.py
-================================================================================
-HorizonUNet (Causal-Mamba U-Net) — Training & Evaluation Script
-================================================================================
-Extracted from the Kaggle training notebook (Cells 1–10).
-
-Only the main Causal-Mamba model is trained and evaluated here.
-Baseline comparisons (ConvLSTM, UNet-NoTemp, etc.) are intentionally
-excluded — they are not needed for deployment or reproduction of the
-primary results.
-
-Usage (Kaggle / any GPU environment):
-    python train.py
-
-Output:
-    checkpoints/best_model.pt   — best checkpoint (monitored by val loss)
-    checkpoints/ckpt_ep<N>.pt   — periodic snapshots every SAVE_EVERY epochs
-
-Hardware requirements:
-    GPU with >= 16 GB VRAM (tested on Tesla P100 / T4)
-    Python 3.12, PyTorch 2.5.1 + CUDA 12.1
-
-Install dependencies first:
-    pip install torch==2.5.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-    pip install causal-conv1d mamba-ssm h5py tqdm pandas numpy scikit-image scipy scikit-learn
-================================================================================
-"""
-
 # ==============================================================================
 # Imports & Seeds
 # ==============================================================================

@@ -1,28 +1,3 @@
-"""
-─────────────────────────────────────────────────────────────────────────────
-Fetches SEVIR-format H5 event pairs (VIL + IR069) from AWS S3.
-
-Output (in ./sample_data/):
-    real_event_{id}_vil.h5    ─ datasets: 'past'  (13,128,128)
-                                            'future' (12,128,128)
-    real_event_{id}_ir069.h5  ─ same layout
-
-Key fix vs previous version
-────────────────────────────
-Raw SEVIR HDF5 bulk files store each modality as  (N_events, H, W, T)
-i.e. shape  (N, 384, 384, 49)  — time is the LAST axis.
-The previous script treated the returned slice as  (T, H, W)  and then
-tried to crop [:, cy-64:cy+64, cx-64:cx+64]  which hit the time axis
-(size 49) and produced width=40 instead of 128.
-
-Correct pipeline:
-  h5[modality][event_idx]  →  (H, W, T)   e.g. (384, 384, 49)
-  transpose(2,0,1)         →  (T, H, W)   e.g. (49, 384, 384)
-  temporal slice           →  (25, 384, 384)
-  center-crop              →  (25, 128, 128)  ← correct
-─────────────────────────────────────────────────────────────────────────────
-"""
-
 import s3fs
 import h5py
 import pandas as pd
